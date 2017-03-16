@@ -1,0 +1,42 @@
+package sifrovanje_vezba;
+
+import java.util.Scanner;
+
+public class TestPoruka {
+
+	public static void main(String args[]) {
+		Poruka sifra;
+		String poruka, s;
+		int pomeraj;
+		
+		Scanner sc = new Scanner(System.in); 
+		System.out.println("-------------PRAG-------------");
+		System.out.println("Unesite tekst tajne poruke:");
+		poruka = sc.nextLine();
+		sifra = new Poruka(poruka);
+		System.out.println(sifra);
+		System.out.println("------------------------------");
+		
+		System.out.println("Unesite tip sifrovanja (t - translacija, r - rotacija):");
+		s = sc.nextLine();
+		if(s.equals("t")) {
+			System.out.println("Unesite pomeraj: ");
+			pomeraj = sc.nextInt();
+			Sifrar unos = new SifrarTranslacija(sifra, pomeraj);
+			System.out.println(unos);
+			System.out.println("Nakon odgovarajuceg sifrovanje:");
+			System.out.println(unos.sifruj());
+		}
+		else {
+			System.out.println("Unesite smer i broj mesta: ");
+			s = sc.next();
+			pomeraj = sc.nextInt();
+			Sifrar unos = new SifrarRotacija(sifra, pomeraj, s);
+			System.out.println(unos);
+			System.out.println("Nakon odgovarajuceg sifrovanje:");
+			System.out.println(unos.sifruj());
+		}
+		
+		sc.close();
+	}
+}
