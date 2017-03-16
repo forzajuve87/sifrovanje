@@ -1,0 +1,25 @@
+package sifrovanje_vezba;
+
+public abstract class Sifrar {
+	
+	private Poruka sifra;
+	
+	// kostruktor
+	public Sifrar(Poruka sifra) {
+		this.sifra = sifra;
+	}
+	
+	// set i get metodi
+	public void setPoruka(Poruka sifra) {
+		this.sifra = sifra;
+	}
+	public Poruka getPoruka() {
+		return sifra;
+	}
+	
+	public String toString() {
+		return sifra.toString();
+	}
+	public abstract Poruka sifruj();
+
+}
