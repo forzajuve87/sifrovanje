@@ -1,0 +1,36 @@
+package sifrovanje_vezba;
+
+public class SifrarTranslacija extends Sifrar {
+
+	private int pomeraj;
+	
+	// kostruktor
+	public SifrarTranslacija(Poruka sifra, int pomeraj) {
+		super(sifra);
+		this.pomeraj = pomeraj;
+	}
+	
+	// get i set metode
+	public void setPomeraj(int pomeraj) {
+		this.pomeraj = pomeraj;
+	}
+	public int getPomeraj() {
+		return this.pomeraj;
+	}
+	
+	// polimorfni metod
+	public Poruka sifruj() {
+		String s = getPoruka().getTekst();
+		char niz[] = s.toCharArray();
+		
+		for(int i=0; i<s.length(); i++) {
+			niz[i] = ((char)(niz[i] + pomeraj));
+		}
+		s = String.valueOf(niz);
+		return new Poruka(s);
+	}
+	
+	public String toString() {
+		return "Transliraj za " + this.pomeraj + ":\n" + super.toString();
+	}
+}
