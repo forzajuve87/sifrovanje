@@ -1,0 +1,26 @@
+package sifrovanje_vezba;
+
+public class Poruka {
+
+	String tekst_poruke;
+	
+	// kostruktori
+	public Poruka(String tekst_poruke) {
+		this.tekst_poruke = tekst_poruke;
+	}
+	public Poruka(final Poruka s) {
+		this(s.tekst_poruke);
+	}
+	
+	// metode
+	public void setTekst(String tekst_poruke) {
+		this.tekst_poruke = tekst_poruke;
+	}
+	public String getTekst() {
+		return tekst_poruke;
+	}
+	
+	public String toString() {
+		return "Tajna poruka: " + this.tekst_poruke;
+	}
+}
